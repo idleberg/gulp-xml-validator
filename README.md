@@ -4,7 +4,23 @@
 [![David](https://img.shields.io/david/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator)
 [![David](https://img.shields.io/david/dev/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator#info=devDependencies)
 
-*Work in progress*
+Gulp plugin to validate XML
+
+## Installation
+
+`npm install gulp-xml-validator`
+
+## Usage
+
+```js
+var gulp = require('gulp');
+var xmlValidator = require('gulp-xml-validator');
+
+gulp.task('lint', function () {
+  gulp.src('**/*.xml')
+    .pipe(xmlValidator())
+});
+```
 
 ## License
 
