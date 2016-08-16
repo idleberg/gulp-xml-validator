@@ -6,7 +6,7 @@
 [![David](https://img.shields.io/david/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator)
 [![David](https://img.shields.io/david/dev/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator#info=devDependencies)
 
-Gulp plugin to validate XML
+Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-validator](https://github.com/kajyr/grunt-xml-validator).
 
 ## Installation
 
@@ -19,14 +19,14 @@ var gulp = require('gulp');
 var xmlValidator = require('gulp-xml-validator');
 
 gulp.task('lint', function () {
-  gulp.src('**/*.xml')
+  return gulp.src('**/*.xml')
     .pipe(xmlValidator())
 });
 ```
 
 ## License
 
-This work is dual-licensed under [The MIT License](https://opensource.org/licenses/MIT)
+This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
 
 ## Donate
 
