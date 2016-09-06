@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/gulp-xml-validator.svg?style=flat-square)](https://www.npmjs.org/package/gulp-xml-validator)
 [![Travis](https://img.shields.io/travis/idleberg/gulp-xml-validator.svg?style=flat-square)](https://travis-ci.org/idleberg/gulp-xml-validator)
 [![David](https://img.shields.io/david/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator)
-[![David](https://img.shields.io/david/dev/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator#info=devDependencies)
+[![David](https://img.shields.io/david/dev/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator?type=dev)
 
 Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-validator](https://github.com/kajyr/grunt-xml-validator).
 
