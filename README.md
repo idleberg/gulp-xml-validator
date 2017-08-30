@@ -16,8 +16,8 @@ Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-valida
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var xmlValidator = require('gulp-xml-validator');
+const gulp = require('gulp');
+const xmlValidator = require('gulp-xml-validator');
 
 gulp.task('lint', function () {
   return gulp.src('**/*.xml')
