@@ -11,7 +11,7 @@ Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-valida
 
 ## Installation
 
-`npm install gulp-xml-validator`
+`$ yarn add gulp-xml-validator || npm install gulp-xml-validator`
 
 ## Usage
 
