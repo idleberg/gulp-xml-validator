@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/l/gulp-xml-validator.svg?style=flat-square)](https://www.npmjs.org/package/gulp-xml-validator)
 [![npm](https://img.shields.io/npm/v/gulp-xml-validator.svg?style=flat-square)](https://www.npmjs.org/package/gulp-xml-validator)
+[![npm](https://img.shields.io/npm/dm/gulp-xml-validator.svg?style=flat-square)](https://www.npmjs.org/package/gulp-xml-validator)
 [![Travis](https://img.shields.io/travis/idleberg/gulp-xml-validator.svg?style=flat-square)](https://travis-ci.org/idleberg/gulp-xml-validator)
 [![David](https://img.shields.io/david/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator)
 [![David](https://img.shields.io/david/dev/idleberg/gulp-xml-validator.svg?style=flat-square)](https://david-dm.org/idleberg/gulp-xml-validator?type=dev)
@@ -15,8 +16,8 @@ Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-valida
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var xmlValidator = require('gulp-xml-validator');
+const gulp = require('gulp');
+const xmlValidator = require('gulp-xml-validator');
 
 gulp.task('lint', function () {
   return gulp.src('**/*.xml')
