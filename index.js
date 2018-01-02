@@ -3,8 +3,9 @@
 const meta = require('./package.json').name;
 
 const DOMParser = require('xmldom').DOMParser;
-const gutil = require('gulp-util');
+const PluginError = require('plugin-error');
 const through = require('through2');
+const underline = require('ansi-underline')
 
 // Plugin level function(dealing with files)
 module.exports = function xmlValidator() {
@@ -19,14 +20,14 @@ module.exports = function xmlValidator() {
     }
 
     if (file.isStream()) {
-      return callback(new gutil.PluginError(meta, 'Streaming not supported'));
+      return callback(new PluginError(meta, 'Streaming not supported'));
     }
 
     const document = new DOMParser({
       locator: {},
       errorHandler: function errorHandler(level, message) {
         message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
-        errorOutputList.push(gutil.colors.underline(file.relative) + ': <' + level + '> ' + message);
+        errorOutputList.push(underline(file.relative) + ': <' + level + '> ' + message);
       }
     }).parseFromString(file.contents.toString(), 'text/xml');
 
@@ -35,7 +36,7 @@ module.exports = function xmlValidator() {
 
   function errorOutput(callback) {
     if (errorOutputList.length > 0) {
-      this.emit('error', new gutil.PluginError(meta, '\n' + errorOutputList.join('\n\n') + '\n', {
+      this.emit('error', new PluginError(meta, '\n' + errorOutputList.join('\n\n') + '\n', {
         showStack: false
       }));
     }

@@ -17,12 +17,13 @@
     "xmldom"
   ],
   "dependencies": {
-    "gulp-util": "^3.0.8",
+    "ansi-underline": "^0.1.1",
+    "plugin-error": "^0.1.2",
     "through2": "^2.0.3",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-debug": "^3.1.0",
     "gulp-jshint": "^2.0.4",
     "gulp-jsonlint": "^1.2.0",
