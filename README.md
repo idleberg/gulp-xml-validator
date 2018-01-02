@@ -9,7 +9,7 @@
 
 Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-validator](https://github.com/kajyr/grunt-xml-validator).
 
-**Note:** If you're still using `gulp@v3`, you should probably stick to [`v0.1.3`](https://github.com/idleberg/gulp-xml-validator/tree/v0.1.3) of this plugin
+**Note:** If you're still using Gulp v3.x, you should probably stick to [`v0.1.3`](https://github.com/idleberg/gulp-xml-validator/tree/v0.1.3) of this plugin
 
 ## Installation
 
