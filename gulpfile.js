@@ -1,11 +1,11 @@
 // Dependencies
-var gulp = require('gulp');
-var debug = require('gulp-debug');
-var jshint = require('gulp-jshint');
-var jsonlint = require('gulp-jsonlint');
+const gulp = require('gulp');
+const debug = require('gulp-debug');
+const jshint = require('gulp-jshint');
+const jsonlint = require('gulp-jsonlint');
 
 // Exclude node_modules
-var self = '!node_modules/**/*';
+const self = '!node_modules/**/*';
 
 // Lint JavaScript files
 gulp.task('jshint', (done) => {
