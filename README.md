@@ -25,7 +25,7 @@ $ yarn add gulp-xml-validator
 const gulp = require('gulp');
 const xmlValidator = require('gulp-xml-validator');
 
-# Gulp v4
+// Gulp v4
 gulp.task('lint', (done) => {
   gulp.src('**/*.xml')
   .pipe(xmlValidator());
@@ -33,7 +33,7 @@ gulp.task('lint', (done) => {
   done();
 });
 
-# Gulp v3
+// Gulp v3
 gulp.task('lint', function () {
   return gulp.src('**/*.xml')
     .pipe(xmlValidator());
