@@ -5,7 +5,7 @@ const meta = require('./package.json').name;
 const DOMParser = require('xmldom').DOMParser;
 const PluginError = require('plugin-error');
 const through = require('through2');
-const underline = require('ansi-underline')
+const underline = require('ansi-underline');
 
 // Plugin level function(dealing with files)
 module.exports = function xmlValidator() {
