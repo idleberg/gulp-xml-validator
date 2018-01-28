@@ -9,39 +9,38 @@ const underline = require('ansi-underline');
 
 // Plugin level function(dealing with files)
 module.exports = function xmlValidator() {
-  const errorOutputList = [];
-
-  // Creating a stream through which each file will pass
-  function transformFunction(file, encoding, callback) {
-
+  return through.obj(function (file, encoding, callback) {
     if (file.isNull()) {
-      // nothing to do
-      return callback(null, file);
+      callback(null, file);
+      return;
     }
 
     if (file.isStream()) {
-      return callback(new PluginError(meta, 'Streaming not supported'));
+      callback(new PluginError(meta, 'Streaming not supported'));
+      return;
     }
 
-    const document = new DOMParser({
-      locator: {},
-      errorHandler: function errorHandler(level, message) {
-        message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
-        errorOutputList.push(underline(file.relative) + ': <' + level + '> ' + message);
-      }
-    }).parseFromString(file.contents.toString(), 'text/xml');
+    let errorList = [];
 
-    return callback(null, file);
-  };
+    try {
+      const document = new DOMParser({
+        locator: {},
+        errorHandler: function errorHandler(level, message) {
+          message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
+          errorList.push(underline(file.relative) + ': <' + level + '> ' + message);
+        }
+      }).parseFromString(file.contents.toString(), 'text/xml');
+    } catch (err) {
+      this.emit('error', new PluginError(meta, err, {fileName: file.path}));
+    }
 
-  function errorOutput(callback) {
-    if (errorOutputList.length > 0) {
-      this.emit('error', new PluginError(meta, '\n' + errorOutputList.join('\n\n') + '\n', {
+    if (errorList && errorList.length > 0) {
+      this.emit('error', new PluginError(meta, '\n' + errorList.join('\n'), {
+        fileName: file.path,
         showStack: false
       }));
     }
-    callback();
-  }
 
-  return through.obj(transformFunction, errorOutput);
+    callback(null, file);
+  });
 };
