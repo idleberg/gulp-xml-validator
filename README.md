@@ -2,10 +2,8 @@
 
 [![npm](https://flat.badgen.net/npm/license/gulp-xml-validator)](https://www.npmjs.org/package/gulp-xml-validator)
 [![npm](https://flat.badgen.net/npm/v/gulp-xml-validator)](https://www.npmjs.org/package/gulp-xml-validator)
-[![npm](https://flat.badgen.net/npm/dm/gulp-xml-validator)](https://www.npmjs.org/package/gulp-xml-validator)
-[![Travis](https://flat.badgen.net/travis/idleberg/gulp-xml-validator)](https://travis-ci.org/idleberg/gulp-xml-validator)
+[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/gulp-xml-validator)](https://circleci.com/gh/idleberg/gulp-xml-validator)
 [![David](https://flat.badgen.net/david/dep/idleberg/gulp-xml-validator)](https://david-dm.org/idleberg/gulp-xml-validator)
-[![David](https://flat.badgen.net/david/dev/idleberg/gulp-xml-validator)](https://david-dm.org/idleberg/gulp-xml-validator?type=dev)
 
 Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-validator](https://github.com/kajyr/grunt-xml-validator).
 
