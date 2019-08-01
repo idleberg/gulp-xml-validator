@@ -1,7 +1,13 @@
-*.xml
+# Package Managers
 bower_components/
 node_modules/
-npm-debug.log
-todo.md
 vendor/
 yarn.lock
+
+# Error Logs
+*npm-debug.log*
+yarn-error.log
+
+# Project specific
+*.xml
+todo.md

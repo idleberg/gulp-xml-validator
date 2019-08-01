@@ -1,2 +1,18 @@
+# Package Managers
+bower_components/
+node_modules/
+vendor/
+yarn.lock
+
+# Development
+.circleci/
 .editorconfig
 .travis.yml
+
+# Error Logs
+*npm-debug.log*
+yarn-error.log
+
+# Project specific
+*.xml
+todo.md
