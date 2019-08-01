@@ -1,6 +1,6 @@
 {
   "name": "gulp-xml-validator",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Gulp plugin to validate XML",
   "author": "Jan T. Sott",
   "license": "MIT",
