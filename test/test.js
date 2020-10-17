@@ -8,7 +8,7 @@ const path = require('path');
 require('mocha');
 require('should');
 
-const fixtures = glob => path.join(__dirname, 'fixtures', glob);
+const fixtures = glob => path.resolve(__dirname, 'fixtures', glob);
 
 describe(meta.name, () => {
   describe('xmlValidator()', () => {
