@@ -23,7 +23,7 @@ module.exports = function xmlValidator() {
     let errorList = [];
 
     try {
-      const document = new DOMParser({
+      new DOMParser({
         locator: {},
         errorHandler: function errorHandler(level, message) {
           message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
