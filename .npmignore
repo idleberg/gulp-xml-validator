@@ -8,6 +8,7 @@ yarn.lock
 .circleci/
 .editorconfig
 .travis.yml
+test/
 
 # Error Logs
 *npm-debug.log*
