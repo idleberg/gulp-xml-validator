@@ -11,10 +11,10 @@ Gulp plugin to validate XML. Based on `xmldom` and inspired by [grunt-xml-valida
 
 ```sh
 # npm
-$ npm install gulp-xml-validator
+$ npm install gulp-xml-validator --save-dev
 
 # Yarn
-$ yarn add gulp-xml-validator
+$ yarn add gulp-xml-validator --dev
 ```
 
 ## Usage
@@ -41,7 +41,3 @@ gulp.task('lint', function () {
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
-
-## Donate
-
-You are welcome support this project using [Flattr](https://flattr.com/submit/auto?user_id=idleberg&url=https://github.com/idleberg/gulp-xml-validator) or Bitcoin `17CXJuPsmhuTzFV2k4RKYwpEHVjskJktRd`
