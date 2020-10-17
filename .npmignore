@@ -7,7 +7,9 @@ yarn.lock
 # Development
 .circleci/
 .editorconfig
+.eslintrc
 .travis.yml
+gulpfile.js
 test/
 
 # Error Logs
