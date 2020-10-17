@@ -22,7 +22,6 @@ describe(meta.name, () => {
     });
 
     it('pass on valid xml', done => {
-
       gulp.src(fixtures('valid.xml'))
         .pipe(xmlValidator())
         .pipe(assert.length(1))
@@ -31,28 +30,24 @@ describe(meta.name, () => {
     });
 
     it('fail on mismatching tags', done => {
-
       gulp.src(fixtures('mismatching_tags.xml'))
         .pipe(xmlValidator())
         .once('error', () => done());
     });
 
     it('fail on missing close tag', done => {
-
       gulp.src(fixtures('missing_close_tag.xml'))
         .pipe(xmlValidator())
         .once('error', () => done());
     });
 
     it('fail on missing quote', done => {
-
       gulp.src(fixtures('missing_quote.xml'))
         .pipe(xmlValidator())
         .once('error', () => done());
     });
 
     it('fail on invalid tag', done => {
-
       gulp.src(fixtures('invalid_tag.xml'))
         .pipe(xmlValidator())
         .once('error', () => done());
