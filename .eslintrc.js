@@ -1,14 +1,13 @@
 module.exports = {
-    env: {
-        browser: true,
-        commonjs: true,
-        es2020: true
-    },
-    extends: "eslint:recommended",
-    parserOptions: {
-        ecmaVersion: 11
-    },
-    ignorePatterns: [
-      './test/*.js'
-    ]
+  env: {
+    es6: true,
+    node: true
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:json/recommended'
+  ],
+  plugins: [
+  ],
+  root: true
 };
