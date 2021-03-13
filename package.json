@@ -31,7 +31,6 @@
     "lint-staged": "^10.5.4",
     "mocha": "^8.2.0",
     "npm-run-all": "^4.1.5",
-    "pinst": "^2.1.6",
     "should": "^13.2.3",
     "stream-assert": "^2.0.3",
     "vinyl": "^2.2.1"
@@ -40,9 +39,7 @@
     "lint:json": "jsonlint --quiet *.json",
     "lint:js": "eslint . --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
-    "postinstall": "husky init",
-    "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable",
+    "postinstall": "husky install",
     "test": "mocha",
     "prepare": "husky install"
   },
