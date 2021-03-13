@@ -1,11 +1,11 @@
 const meta = require('../package.json');
 const xmlValidator = require('..');
 
+const { it, describe } = require('mocha');
 const assert = require('stream-assert');
 const gulp = require('gulp');
 const path = require('path');
 
-require('mocha');
 require('should');
 
 const fixtures = glob => path.resolve(__dirname, 'fixtures', glob);
