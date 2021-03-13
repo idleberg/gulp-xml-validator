@@ -1,13 +1,13 @@
 # Package Managers
+*npm-debug.log*
 bower_components/
 node_modules/
 vendor/
-yarn.lock
-
-# Error Logs
-*npm-debug.log*
 yarn-error.log
 yarn.lock
+
+# Development
+.eslintcache
 
 # Project specific
 *.xml
