@@ -32,7 +32,7 @@ gulp.task('lint', (done) => {
 });
 
 // Gulp v3
-gulp.task('lint', function () {
+gulp.task('lint', function() {
   return gulp.src('**/*.xml')
     .pipe(xmlValidator());
 });
