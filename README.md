@@ -26,7 +26,7 @@ const xmlValidator = require('gulp-xml-validator');
 // Gulp v4
 gulp.task('lint', (done) => {
   gulp.src('**/*.xml')
-  .pipe(xmlValidator());
+    .pipe(xmlValidator());
 
   done();
 });
