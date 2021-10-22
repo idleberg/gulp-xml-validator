@@ -2,7 +2,7 @@
 
 const meta = require('./package.json').name;
 
-const DOMParser = require('xmldom').DOMParser;
+const DOMParser = require('@xmldom/xmldom').DOMParser;
 const PluginError = require('plugin-error');
 const through = require('through2');
 const underline = require('ansi-underline');
