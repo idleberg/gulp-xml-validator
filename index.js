@@ -16,7 +16,7 @@ module.exports = function xmlValidator() {
     }
 
     if (file.isStream()) {
-      callback(new PluginError(meta, 'Streaming not supported'));
+      callback(PluginError(meta, 'Streaming not supported'));
       return;
     }
 
