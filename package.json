@@ -19,7 +19,7 @@
   "dependencies": {
     "@xmldom/xmldom": "^0.8.3",
     "ansi-underline": "^0.1.1",
-    "plugin-error": "^1.0.1",
+    "plugin-error": "^2.0.0",
     "through2": "^4.0.2"
   },
   "devDependencies": {
@@ -33,7 +33,7 @@
     "npm-run-all2": "^6.0.2",
     "should": "^13.2.3",
     "stream-assert": "^2.0.3",
-    "vinyl": "^2.2.1"
+    "vinyl": "^3.0.0"
   },
   "scripts": {
     "lint:js": "eslint . --ignore-path .gitignore",

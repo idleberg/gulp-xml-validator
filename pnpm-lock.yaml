@@ -11,16 +11,16 @@ specifiers:
   lint-staged: ^13.0.3
   mocha: ^9.2.2
   npm-run-all2: ^6.0.2
-  plugin-error: ^1.0.1
+  plugin-error: ^2.0.0
   should: ^13.2.3
   stream-assert: ^2.0.3
   through2: ^4.0.2
-  vinyl: ^2.2.1
+  vinyl: ^3.0.0
 
 dependencies:
   '@xmldom/xmldom': 0.8.3
   ansi-underline: 0.1.1
-  plugin-error: 1.0.1
+  plugin-error: 2.0.0
   through2: 4.0.2
 
 devDependencies:
@@ -34,7 +34,7 @@ devDependencies:
   npm-run-all2: 6.0.2
   should: 13.2.3
   stream-assert: 2.0.3
-  vinyl: 2.2.1
+  vinyl: 3.0.0
 
 packages:
 
@@ -280,6 +280,7 @@ packages:
   /arr-diff/4.0.0:
     resolution: {integrity: sha512-YVIQ82gZPGBebQV/a8dar4AitzCQs0jjXwMPZllpXMaGjXPYVUawSxQrRsjhjupyVxEvbHgUmIhKVlND+j02kA==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /arr-filter/1.1.2:
     resolution: {integrity: sha512-A2BETWCqhsecSvCkWAeVBFLH6sXEUGASuzkpjL3GR1SlL/PWL6M3J8EAAld2Uubmh39tvkJTqC9LeLHCUKmFXA==}
@@ -303,6 +304,7 @@ packages:
   /arr-union/3.1.0:
     resolution: {integrity: sha512-sKpyeERZ02v1FeCZT8lrfJq5u6goHCtpTAzPwJYe7c8SPFOboNjNg1vz2L4VTn9T4PQxEx13TbXLmYUcS6Ug7Q==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /array-each/1.0.1:
     resolution: {integrity: sha512-zHjL5SZa68hkKHBFBK6DJCTtr9sfTCPCaph/L7tMSLcTFgy+zX7E+6q5UArbtOtMBCtxdICpfTCspRse+ywyXA==}
@@ -351,6 +353,7 @@ packages:
   /assign-symbols/1.0.0:
     resolution: {integrity: sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /astral-regex/2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
@@ -1152,6 +1155,7 @@ packages:
     dependencies:
       assign-symbols: 1.0.0
       is-extendable: 1.0.1
+    dev: true
 
   /extend/3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
@@ -1185,6 +1189,10 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+    dev: true
+
+  /fast-fifo/1.1.0:
+    resolution: {integrity: sha512-Kl29QoNbNvn4nhDsLYjyIAaIqaJB6rBx5p3sL9VjaefJ+eMFBWVZiaoguaoZfzEKr5RhAti0UgM8703akGPJ6g==}
     dev: true
 
   /fast-glob/3.2.12:
@@ -1817,6 +1825,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       is-plain-object: 2.0.4
+    dev: true
 
   /is-extglob/2.1.1:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
@@ -1886,6 +1895,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       isobject: 3.0.1
+    dev: true
 
   /is-plain-object/5.0.0:
     resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
@@ -1952,6 +1962,7 @@ packages:
   /isobject/3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /js-sdsl/4.1.5:
     resolution: {integrity: sha512-08bOAKweV2NUC1wqTtf3qZlnpOX/R2DU9ikpjOHs0H+ibQv3zpncVQg6um4uYtRtrwIX8M4Nh3ytK4HGlYAq7Q==}
@@ -2700,14 +2711,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /plugin-error/1.0.1:
-    resolution: {integrity: sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==}
-    engines: {node: '>= 0.10'}
+  /plugin-error/2.0.0:
+    resolution: {integrity: sha512-o4bwIOmuFwUg2MU6xt7plGEQY3YyENx6kvwaFZBrUpamA91FdS9w3U+pU0y4OuDoBQe+jf3RLGSfQebSRBEVsQ==}
+    engines: {node: '>=10.13.0'}
     dependencies:
       ansi-colors: 1.1.0
-      arr-diff: 4.0.0
-      arr-union: 3.1.0
-      extend-shallow: 3.0.2
     dev: false
 
   /posix-character-classes/0.1.1:
@@ -2751,6 +2759,10 @@ packages:
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+    dev: true
+
+  /queue-tick/1.0.1:
+    resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
     dev: true
 
   /randombytes/2.1.0:
@@ -2888,6 +2900,11 @@ packages:
   /replace-ext/1.0.1:
     resolution: {integrity: sha512-yD5BHCe7quCgBph4rMQ+0KkIRKwWCrHDOX1p1Gp6HwjPM5kVoCdKGNhN7ydqqsX6lJEnQDKZ/tFMiEdQ1dvPEw==}
     engines: {node: '>= 0.10'}
+    dev: true
+
+  /replace-ext/2.0.0:
+    resolution: {integrity: sha512-UszKE5KVK6JvyD92nzMn9cDapSk6w/CaFZ96CnmDMUqH9oowfxF/ZjRITD25H4DnOQClLA4/j7jLGXXLVKxAug==}
+    engines: {node: '>= 10'}
     dev: true
 
   /replace-homedir/1.0.0:
@@ -3230,6 +3247,13 @@ packages:
     resolution: {integrity: sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==}
     dev: true
 
+  /streamx/2.12.5:
+    resolution: {integrity: sha512-Y+nkFw57Z5JHT3zLlqFm3GccOy2FeYdUrrqita6Dd8kr/8enPn9GKa8IYf3/DmEKfZl/E2sWoSKUnd4qhonrgg==}
+    dependencies:
+      fast-fifo: 1.1.0
+      queue-tick: 1.0.1
+    dev: true
+
   /string-argv/0.3.1:
     resolution: {integrity: sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==}
     engines: {node: '>=0.6.19'}
@@ -3353,6 +3377,12 @@ packages:
     dependencies:
       es6-iterator: 2.0.3
       es6-symbol: 3.1.3
+    dev: true
+
+  /teex/1.0.1:
+    resolution: {integrity: sha512-eYE6iEI62Ni1H8oIa7KlDU6uQBtqr4Eajni3wX7rpfXD8ysFx8z0+dri+KWEPWpBsxXfxu58x/0jvTVT1ekOSg==}
+    dependencies:
+      streamx: 2.12.5
     dev: true
 
   /text-table/0.2.0:
@@ -3624,6 +3654,17 @@ packages:
       cloneable-readable: 1.1.3
       remove-trailing-separator: 1.1.0
       replace-ext: 1.0.1
+    dev: true
+
+  /vinyl/3.0.0:
+    resolution: {integrity: sha512-rC2VRfAVVCGEgjnxHUnpIVh3AGuk62rP3tqVrn+yab0YH7UULisC085+NYH+mnqf3Wx4SpSi1RQMwudL89N03g==}
+    engines: {node: '>=10.13.0'}
+    dependencies:
+      clone: 2.1.2
+      clone-stats: 1.0.0
+      remove-trailing-separator: 1.1.0
+      replace-ext: 2.0.0
+      teex: 1.0.1
     dev: true
 
   /vscode-json-languageservice/4.2.1:
