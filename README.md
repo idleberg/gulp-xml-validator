@@ -9,11 +9,7 @@ Gulp plugin to validate XML. Based on `@xmldom/xmldom` and inspired by [grunt-xm
 ## Installation
 
 ```sh
-# npm
 $ npm install gulp-xml-validator --save-dev
-
-# Yarn
-$ yarn add gulp-xml-validator --dev
 ```
 
 ## Usage
