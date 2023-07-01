@@ -9,8 +9,10 @@
 ## Installation
 
 ```sh
-$ npm install gulp-xml-validator --save-dev
+$ npm install gulp-xml-validator@next --save-dev
 ```
+
+:warning: 
 
 ## Usage
 
