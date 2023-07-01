@@ -5,7 +5,6 @@ import underline from 'ansi-underline';
 
 const packageName = 'gulp-xml-validator';
 
-// Plugin level function(dealing with files)
 export function xmlValidator() {
   return through.obj(function (file, encoding, callback) {
     if (file.isNull()) {
