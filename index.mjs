@@ -1,14 +1,12 @@
-'use strict';
+import { DOMParser } from '@xmldom/xmldom'
+import PluginError from 'plugin-error';
+import through from 'through2';
+import underline from 'ansi-underline';
 
-const meta = require('./package.json').name;
-
-const DOMParser = require('@xmldom/xmldom').DOMParser;
-const PluginError = require('plugin-error');
-const through = require('through2');
-const underline = require('ansi-underline');
+const packageName = 'gulp-xml-validator';
 
 // Plugin level function(dealing with files)
-module.exports = function xmlValidator() {
+export function xmlValidator() {
   return through.obj(function (file, encoding, callback) {
     if (file.isNull()) {
       callback(null, file);
@@ -16,7 +14,7 @@ module.exports = function xmlValidator() {
     }
 
     if (file.isStream()) {
-      callback(PluginError(meta, 'Streaming not supported'));
+      callback(PluginError(packageName, 'Streaming not supported'));
       return;
     }
 
@@ -31,11 +29,11 @@ module.exports = function xmlValidator() {
         }
       }).parseFromString(file.contents.toString(), 'text/xml');
     } catch (err) {
-      this.emit('error', new PluginError(meta, err, {fileName: file.path}));
+      this.emit('error', new PluginError(packageName, err, {fileName: file.path}));
     }
 
     if (errorList && errorList.length > 0) {
-      this.emit('error', new PluginError(meta, '\n' + errorList.join('\n'), {
+      this.emit('error', new PluginError(packageName, '\n' + errorList.join('\n'), {
         fileName: file.path,
         showStack: false
       }));

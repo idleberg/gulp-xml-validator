@@ -1,16 +1,16 @@
-const meta = require('../package.json');
-const xmlValidator = require('..');
+import { xmlValidator } from '../index.mjs';
 
-const { it, describe } = require('mocha');
-const assert = require('stream-assert');
-const gulp = require('gulp');
-const path = require('path');
+import { fileURLToPath } from 'node:url';
+import { it, describe } from 'mocha';
+import assert from 'stream-assert';
+import gulp from 'gulp';
+import path from 'node:path';
+import 'should';
 
-require('should');
-
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const fixtures = glob => path.resolve(__dirname, 'fixtures', glob);
 
-describe(meta.name, () => {
+describe('gulp-xml-validator', () => {
   describe('xmlValidator()', () => {
     it('should emit error on streamed file', done => {
       gulp.src(fixtures('*'), { buffer: false })

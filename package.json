@@ -4,7 +4,8 @@
   "description": "Gulp plugin to validate XML",
   "author": "Jan T. Sott",
   "license": "MIT",
-  "main": "index.js",
+  "type": "module",
+  "exports": "./index.mjs",
   "repository": {
     "type": "git",
     "url": "git://github.com/idleberg/gulp-xml-validator.git"
@@ -16,27 +17,35 @@
     "xml",
     "xmldom"
   ],
+  "files": [
+    "index.mjs",
+    "package.json",
+    "README.MD"
+  ],
+  "engines": {
+		"gulp": ">=2.3.0",
+    "node": ">=16.13 || >=18"
+  },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.3",
+    "@xmldom/xmldom": "^0.8.8",
     "ansi-underline": "^0.1.1",
-    "plugin-error": "^2.0.0",
+    "plugin-error": "^2.0.1",
     "through2": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^8.25.0",
+    "eslint": "^8.44.0",
     "eslint-plugin-json": "^3.1.0",
     "gulp": "^4.0.2",
-    "husky": "^8.0.1",
-    "jsonlint": "^1.6.3",
-    "lint-staged": "^13.0.3",
-    "mocha": "^10.0.0",
-    "npm-run-all2": "^6.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "mocha": "^10.2.0",
+    "npm-run-all2": "^6.0.5",
     "should": "^13.2.3",
     "stream-assert": "^2.0.3",
     "vinyl": "^3.0.0"
   },
   "scripts": {
-    "lint:js": "eslint . --ignore-path .gitignore",
+    "lint:js": "eslint ./**/*.mjs --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
     "postinstall": "husky install",
     "prepare": "husky install",
