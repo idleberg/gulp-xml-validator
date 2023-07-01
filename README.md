@@ -1,9 +1,9 @@
 # gulp-xml-validator
 
-[![npm](https://flat.badgen.net/npm/license/gulp-xml-validator)](https://www.npmjs.org/package/gulp-xml-validator)
-[![npm](https://flat.badgen.net/npm/v/gulp-xml-validator)](https://www.npmjs.org/package/gulp-xml-validator)
-[![CI](https://img.shields.io/github/actions/workflow/status/idleberg/gulp-xml-validator/default.yml?style=flat-square)](https://github.com/idleberg/gulp-xml-validator/actions)
-[![Snyk](https://flat.badgen.net/snyk/idleberg/gulp-xml-validator)](https://snyk.io/vuln/npm:gulp-xml-validator)
+[![License](https://img.shields.io/npm/l/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/blob/main/README.md)
+[![Version](https://img.shields.io/github/v/release/idleberg/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/gulp-xml-validator/default.yml?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/actions)
+
 
 Gulp plugin to validate XML. Based on `@xmldom/xmldom` and inspired by [grunt-xml-validator](https://github.com/kajyr/grunt-xml-validator).
 
@@ -19,7 +19,6 @@ $ npm install gulp-xml-validator --save-dev
 import gulp from 'gulp';
 import { xmlValidator } from 'gulp-xml-validator';
 
-// Gulp v4
 gulp.task('lint', (done) => {
   gulp.src('**/*.xml')
     .pipe(xmlValidator());
