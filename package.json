@@ -19,6 +19,7 @@
   ],
   "files": [
     "index.mjs",
+    "LICENSE",
     "package.json",
     "README.MD"
   ],
