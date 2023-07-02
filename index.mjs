@@ -28,7 +28,9 @@ export function xmlValidator() {
         }
       }).parseFromString(file.contents.toString(), 'text/xml');
     } catch (err) {
-      this.emit('error', new PluginError(packageName, err, {fileName: file.path}));
+      this.emit('error', new PluginError(packageName, err, {
+				fileName: file.path
+			}));
     }
 
     if (errorList && errorList.length > 0) {
