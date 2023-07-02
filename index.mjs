@@ -1,7 +1,7 @@
 import { DOMParser } from '@xmldom/xmldom'
+import kleur from 'kleur';
 import PluginError from 'plugin-error';
 import through from 'through2';
-import underline from 'ansi-underline';
 
 const packageName = 'gulp-xml-validator';
 
@@ -24,7 +24,7 @@ export function xmlValidator() {
         locator: {},
         errorHandler: function errorHandler(level, message) {
           message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
-          errorList.push(underline(file.relative) + ': <' + level + '> ' + message);
+          errorList.push(`${kleur.underline(file.relative)}: <${level}> ${message}`);
         }
       }).parseFromString(file.contents.toString(), 'text/xml');
     } catch (err) {
@@ -32,7 +32,7 @@ export function xmlValidator() {
     }
 
     if (errorList && errorList.length > 0) {
-      this.emit('error', new PluginError(packageName, '\n' + errorList.join('\n'), {
+      this.emit('error', new PluginError(packageName, `\n${errorList.join('\n')}`, {
         fileName: file.path,
         showStack: false
       }));
@@ -40,4 +40,4 @@ export function xmlValidator() {
 
     callback(null, file);
   });
-};
+}
