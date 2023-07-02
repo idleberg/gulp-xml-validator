@@ -45,9 +45,8 @@
   "scripts": {
     "lint:js": "eslint ./**/*.mjs --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
-    "postinstall": "husky install",
     "prepare": "husky install",
-    "test": "mocha"
+    "test": "uvu tests"
   },
   "lint-staged": {
     "*.(js|json)": "eslint --cache --fix"

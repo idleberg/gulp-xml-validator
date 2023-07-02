@@ -1,14 +1,3 @@
-
-// const meta = require('../package.json');
-// const xmlValidator = require('..');
-
-// const { it, describe } = require('mocha');
-// const assert = require('stream-assert');
-// const gulp = require('gulp');
-// const path = require('path');
-
-// require('should');
-
 import { xmlValidator } from '../index.mjs';
 
 import { resolve } from 'node:path';
@@ -16,10 +5,12 @@ import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 import gulp from 'gulp';
 
-// const fixtures = glob => resolve(__dirname, 'fixtures', glob);
+function resolveFixture(fileName) {
+	return resolve(process.cwd(), `tests/fixtures/${fileName}`);
+}
 
 test('should emit error on streamed file', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/valid.xml');
+	const fixture = resolveFixture('valid.xml');
 
 	const { message } = await new Promise(resolve => {
 		gulp.src(fixture, { buffer: false })
@@ -31,7 +22,7 @@ test('should emit error on streamed file', async () => {
 });
 
 test('pass on valid xml', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/valid.xml');
+	const fixture = resolveFixture('valid.xml');
 
 	assert.not.throws(async() => await new Promise(() => {
 			gulp.src(fixture)
@@ -40,7 +31,7 @@ test('pass on valid xml', async () => {
 });
 
 test('fail on mismatching tags', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/mismatching_tags.xml');
+	const fixture = resolveFixture('mismatching_tags.xml');
 
 	const { message } = await new Promise((resolve) => {
 			gulp.src(fixture)
@@ -52,7 +43,7 @@ test('fail on mismatching tags', async () => {
 });
 
 test('fail on missing close tags', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/missing_close_tag.xml');
+	const fixture = resolveFixture('missing_close_tag.xml');
 
 	const { message } = await new Promise((resolve) => {
 			gulp.src(fixture)
@@ -64,7 +55,7 @@ test('fail on missing close tags', async () => {
 });
 
 test('fail on missing quote', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/missing_quote.xml');
+	const fixture = resolveFixture('missing_quote.xml');
 
 	const { message } = await new Promise((resolve) => {
 			gulp.src(fixture)
@@ -76,7 +67,7 @@ test('fail on missing quote', async () => {
 });
 
 test('fail on invalid tag', async () => {
-	const fixture = resolve(process.cwd(), 'test/fixtures/invalid_tag.xml');
+	const fixture = resolveFixture('invalid_tag.xml');
 
 	const { message } = await new Promise((resolve) => {
 			gulp.src(fixture)
