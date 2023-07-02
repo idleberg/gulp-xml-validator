@@ -17,7 +17,7 @@ export function xmlValidator() {
      * Transform function for the Gulp plugin.
      * @param {Vinyl} file - The vinyl file being processed.
      * @param {BufferEncoding} _encoding - The encoding of the file.
-     * @param {TransformCallback} callback - The callback function to signal the completion of the transformation.
+     * @param {internal.TransformCallback} callback - The callback function to signal the completion of the transformation.
      */
     transform(file, _encoding, callback) {
       if (file.isNull()) {
