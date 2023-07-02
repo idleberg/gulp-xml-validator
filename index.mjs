@@ -5,10 +5,21 @@ import PluginError from 'plugin-error';
 
 const packageName = 'gulp-xml-validator';
 
+/**
+ * Gulp plugin to validate XML files using the xmldom library.
+ * @returns {Transform} A transform stream that validates XML files.
+ */
 export function xmlValidator() {
   return new Transform({
     objectMode: true,
-    transform(file, encoding, callback) {
+
+		/**
+     * Transform function for the Gulp plugin.
+     * @param {Vinyl} file - The vinyl file being processed.
+     * @param {BufferEncoding} _encoding - The encoding of the file.
+     * @param {TransformCallback} callback - The callback function to signal the completion of the transformation.
+     */
+    transform(file, _encoding, callback) {
       if (file.isNull()) {
         callback(null, file);
         return;
