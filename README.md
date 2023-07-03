@@ -12,11 +12,10 @@
 $ npm install gulp-xml-validator@next --save-dev
 ```
 
-:warning: This plugin is now pure ESM. [Read how to migrate your Gulpfile.](https://gist.github.com/noraj/007a943dc781dc8dd3198a29205bae04)
-
 ## Usage
 
 ```js
+// Gulpfile.mjs
 import gulp from 'gulp';
 import { xmlValidator } from 'gulp-xml-validator';
 
@@ -27,6 +26,8 @@ gulp.task('lint', done => {
   done();
 });
 ```
+
+:warning: This plugin is now pure ESM. [Read how to migrate your `Gulpfile`](https://gist.github.com/noraj/007a943dc781dc8dd3198a29205bae04).
 
 ## License
 
