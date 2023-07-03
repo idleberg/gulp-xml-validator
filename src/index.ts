@@ -11,7 +11,7 @@ const packageName = 'gulp-xml-validator';
  * Gulp plugin to validate XML files using the xmldom library.
  * @returns {Transform} A transform stream that validates XML files.
  */
-export function xmlValidator() {
+export function xmlValidator(): Transform {
   return new Transform({
     objectMode: true,
 
@@ -32,7 +32,12 @@ export function xmlValidator() {
         return;
       }
 
-      let errorList = [];
+      if (!file.contents?.toString()) {
+        callback(new PluginError(packageName, 'Empty file'));
+        return;
+      }
+
+      const errorList: string[] = [];
 
       try {
         new DOMParser({

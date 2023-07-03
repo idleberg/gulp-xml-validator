@@ -35,6 +35,8 @@
   "devDependencies": {
     "@types/node": "^20.3.3",
     "@types/vinyl": "^2.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
     "esbuild": "^0.18.11",
     "eslint": "^8.44.0",
     "eslint-plugin-json": "^3.1.0",
@@ -48,8 +50,8 @@
   },
   "scripts": {
     "build": "esbuild --bundle src/index.ts --external:@xmldom/xmldom --external:kleur --external:plugin-error --format=esm --minify --outfile=dist/index.mjs --platform=node --sourcemap",
-		"dev": "npm run build -- --watch",
-    "lint:js": "eslint ./**/*.mjs --ignore-path .gitignore",
+    "dev": "npm run build -- --watch",
+    "lint:js": "eslint ./src/**/*.ts --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
     "prepack": "npm run build",
     "prepare": "husky install",
