@@ -30,6 +30,11 @@ export function xmlValidator() {
         return;
       }
 
+			if (!file.contents) {
+        callback(new PluginError(packageName, 'Empty file'));
+        return;
+      }
+
       let errorList = [];
 
       try {
@@ -40,8 +45,8 @@ export function xmlValidator() {
             errorList.push(`${kleur.underline(file.relative)}: <${level}> ${message}`);
           }
         }).parseFromString(file.contents.toString(), 'text/xml');
-      } catch (err) {
-        this.emit('error', new PluginError(packageName, err, {
+      } catch (error) {
+        this.emit('error', new PluginError(packageName, error, {
           fileName: file.path
         }));
       }
