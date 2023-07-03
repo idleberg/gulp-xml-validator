@@ -1,7 +1,9 @@
 import { DOMParser } from '@xmldom/xmldom';
-import { Transform } from 'node:stream';
+import { Transform, type TransformCallback, } from 'node:stream';
 import kleur from 'kleur';
 import PluginError from 'plugin-error';
+
+import type Vinyl from 'vinyl';
 
 const packageName = 'gulp-xml-validator';
 
@@ -17,9 +19,9 @@ export function xmlValidator() {
      * Transform function for the Gulp plugin.
      * @param {Vinyl} file - The vinyl file being processed.
      * @param {BufferEncoding} _encoding - The encoding of the file.
-     * @param {internal.TransformCallback} callback - The callback function to signal the completion of the transformation.
+     * @param {TransformCallback} callback - The callback function to signal the completion of the transformation.
      */
-    transform(file, _encoding, callback) {
+    transform(file: Vinyl, _encoding: BufferEncoding, callback: TransformCallback) {
       if (file.isNull()) {
         callback(null, file);
         return;

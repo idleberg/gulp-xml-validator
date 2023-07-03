@@ -10,6 +10,9 @@ yarn.lock
 # Development
 .eslintcache
 
+# Build
+dist/
+
 # Project specific
 *.xml
 !test/**/*.xml
