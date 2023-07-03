@@ -18,7 +18,7 @@
     "xmldom"
   ],
   "files": [
-    "index.mjs",
+    "dist/index.mjs",
     "LICENSE",
     "package.json",
     "README.MD"
