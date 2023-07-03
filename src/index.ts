@@ -1,5 +1,5 @@
 import { DOMParser } from '@xmldom/xmldom';
-import { Transform, type TransformCallback, } from 'node:stream';
+import { Transform, type TransformCallback } from 'node:stream';
 import kleur from 'kleur';
 import PluginError from 'plugin-error';
 
@@ -15,7 +15,7 @@ export function xmlValidator(): Transform {
   return new Transform({
     objectMode: true,
 
-		/**
+    /**
      * Transform function for the Gulp plugin.
      * @param {Vinyl} file - The vinyl file being processed.
      * @param {BufferEncoding} _encoding - The encoding of the file.
@@ -32,7 +32,7 @@ export function xmlValidator(): Transform {
         return;
       }
 
-      if (!file.contents?.toString()) {
+      if (!file.contents) {
         callback(new PluginError(packageName, 'Empty file'));
         return;
       }
@@ -47,8 +47,8 @@ export function xmlValidator(): Transform {
             errorList.push(`${kleur.underline(file.relative)}: <${level}> ${message}`);
           }
         }).parseFromString(file.contents.toString(), 'text/xml');
-      } catch (err) {
-        this.emit('error', new PluginError(packageName, err, {
+      } catch (error) {
+        this.emit('error', new PluginError(packageName, error as Error, {
           fileName: file.path
         }));
       }
