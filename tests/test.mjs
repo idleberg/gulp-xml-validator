@@ -1,4 +1,4 @@
-import { xmlValidator } from '../dist/index.mjs';
+import { xmlValidator } from '../dist/index.js';
 
 import { resolve } from 'node:path';
 import { test } from 'uvu';
