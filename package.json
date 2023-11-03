@@ -11,7 +11,9 @@
     "url": "git://github.com/idleberg/gulp-xml-validator.git"
   },
   "keywords": [
+    "gulp",
     "gulpplugin",
+    "gulp-plugin",
     "linter",
     "validator",
     "xml",
@@ -33,7 +35,7 @@
     "plugin-error": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/node": "^18.18.8",
     "@types/vinyl": "^2.0.9",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
@@ -59,6 +61,6 @@
     "test": "uvu tests"
   },
   "lint-staged": {
-    "*.(js|json)": "eslint --cache --fix"
+    "*.(ts|json)": "eslint --cache --fix"
   }
 }
