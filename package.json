@@ -1,63 +1,67 @@
 {
   "name": "gulp-xml-validator",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Gulp plugin to validate XML",
   "author": "Jan T. Sott",
   "license": "MIT",
   "type": "module",
-  "exports": "./dist/index.mjs",
+  "exports": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/idleberg/gulp-xml-validator.git"
   },
   "keywords": [
+    "gulp",
     "gulpplugin",
+    "gulp-plugin",
     "linter",
     "validator",
     "xml",
     "xmldom"
   ],
   "files": [
-    "dist/index.mjs",
+    "dist/",
     "LICENSE",
     "package.json",
-    "README.MD"
+    "README.md"
   ],
   "engines": {
     "gulp": ">=2.3.0",
-    "node": ">=16.13 || >=18"
+    "node": ">=18"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.8",
+    "@xmldom/xmldom": "^0.8.10",
     "kleur": "^4.1.5",
     "plugin-error": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
-    "@types/vinyl": "^2.0.7",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "esbuild": "^0.18.11",
-    "eslint": "^8.44.0",
+    "@types/node": "^18.18.8",
+    "@types/vinyl": "^2.0.9",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.53.0",
     "eslint-plugin-json": "^3.1.0",
     "gulp": "^4.0.2",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "npm-run-all2": "^6.0.5",
-    "tslib": "^2.6.0",
-    "typescript": "^5.1.6",
+    "knip": "^2.39.0",
+    "lint-staged": "^15.0.2",
+    "npm-run-all2": "^6.1.1",
+    "tsm": "^2.3.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
     "uvu": "^0.5.6"
   },
   "scripts": {
-    "build": "esbuild --bundle src/index.ts --external:@xmldom/xmldom --external:kleur --external:plugin-error --format=esm --minify --outfile=dist/index.mjs --platform=node --sourcemap",
+    "build": "tsup",
     "dev": "npm run build -- --watch",
-    "lint:js": "eslint ./src/**/*.ts --ignore-path .gitignore",
+    "lint:deps": "knip --production",
+    "lint:ts": "eslint ./src/**/*.ts --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
     "prepack": "npm run build",
     "prepare": "husky install",
-    "test": "uvu tests"
+    "test": "uvu -r tsm tests"
   },
   "lint-staged": {
-    "*.(js|json)": "eslint --cache --fix"
+    "*.(ts|json)": "eslint --cache --fix"
   }
 }

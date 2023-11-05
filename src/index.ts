@@ -2,10 +2,9 @@ import { DOMParser } from '@xmldom/xmldom';
 import { Transform, type TransformCallback } from 'node:stream';
 import kleur from 'kleur';
 import PluginError from 'plugin-error';
+import { name as packageName } from '../package.json';
 
 import type Vinyl from 'vinyl';
-
-const packageName = 'gulp-xml-validator';
 
 /**
  * Gulp plugin to validate XML files using the xmldom library.
