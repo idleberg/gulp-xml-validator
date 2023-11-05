@@ -2,14 +2,12 @@
 
 > Gulp plugin to validate XML.
 
-[![License](https://img.shields.io/npm/l/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/blob/main/LICENSE)
-[![Version](https://img.shields.io/github/v/release/idleberg/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/gulp-xml-validator/default.yml?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/actions)
+i
 
 ## Installation
 
 ```sh
-$ npm install gulp-xml-validator@next --save-dev
+$ npm install gulp-xml-validator --save-dev
 ```
 
 ## Usage
