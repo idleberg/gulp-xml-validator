@@ -2,7 +2,6 @@ import { DOMParser } from '@xmldom/xmldom';
 import { Transform, type TransformCallback } from 'node:stream';
 import kleur from 'kleur';
 import PluginError from 'plugin-error';
-import { name as packageName } from '../package.json';
 
 import type Vinyl from 'vinyl';
 
@@ -11,7 +10,9 @@ import type Vinyl from 'vinyl';
  * @returns {Transform} A transform stream that validates XML files.
  */
 export function xmlValidator(): Transform {
-  return new Transform({
+	const packageName = 'gulp-xml-validator';
+
+	return new Transform({
     objectMode: true,
 
     /**
