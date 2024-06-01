@@ -1,15 +1,21 @@
 import { DOMParser } from '@xmldom/xmldom';
 import { Transform, type TransformCallback } from 'node:stream';
-import kleur from 'kleur';
+import { underline } from 'kleur/colors';
 import PluginError from 'plugin-error';
 
 import type Vinyl from 'vinyl';
+
+type PluginOptions = {
+	mimeType?: string;
+}
 
 /**
  * Gulp plugin to validate XML files using the xmldom library.
  * @returns {Transform} A transform stream that validates XML files.
  */
-export function xmlValidator(): Transform {
+export function xmlValidator(options: PluginOptions = {
+	mimeType: 'text/xml'
+}): Transform {
 	const packageName = 'gulp-xml-validator';
 
 	return new Transform({
@@ -44,9 +50,9 @@ export function xmlValidator(): Transform {
           locator: {},
           errorHandler: function errorHandler(level, message) {
             message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
-            errorList.push(`${kleur.underline(file.relative)}: <${level}> ${message}`);
+            errorList.push(`${underline(file.relative)}: <${level}> ${message}`);
           }
-        }).parseFromString(file.contents.toString(), 'text/xml');
+				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
       } catch (error) {
         this.emit('error', new PluginError(packageName, error as Error, {
           fileName: file.path
