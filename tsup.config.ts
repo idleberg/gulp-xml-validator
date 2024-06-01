@@ -1,7 +1,6 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-	target: 'esnext',
 	clean: true,
 	dts: true,
 	entry: ['src/index.ts'],
@@ -10,5 +9,6 @@ export default defineConfig({
 	minify: true,
 	outDir: 'dist',
 	platform: 'node',
+	target: 'esnext',
 	treeshake: 'recommended',
 });
