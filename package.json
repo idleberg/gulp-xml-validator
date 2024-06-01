@@ -1,72 +1,75 @@
 {
-  "name": "gulp-xml-validator",
-  "version": "3.0.1",
-  "description": "Gulp plugin to validate XML",
-  "author": "Jan T. Sott",
-  "license": "MIT",
-  "type": "module",
-  "exports": "./dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/idleberg/gulp-xml-validator.git"
-  },
-  "keywords": [
-    "gulp",
-    "gulpplugin",
-    "gulp-plugin",
-    "linter",
-    "validator",
-    "xml",
-    "xmldom"
-  ],
-  "files": [
-    "dist/",
-    "LICENSE",
-    "package.json",
-    "README.md"
-  ],
-  "engines": {
-    "gulp": ">=2.3.0",
-    "node": ">=18"
-  },
-  "dependencies": {
-    "@xmldom/xmldom": "^0.8.10",
-    "kleur": "^4.1.5",
-    "plugin-error": "^2.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^18.19.33",
-    "@types/vinyl": "^2.0.12",
-    "eslint": "^9.4.0",
-    "eslint-plugin-jsonc": "^2.16.0",
-    "eslint-plugin-unicorn": "^53.0.0",
-    "gulp": "^4.0.2",
-    "husky": "^9.0.11",
-    "knip": "^5.17.3",
-    "lint-staged": "^15.2.5",
-    "npm-run-all2": "^6.2.0",
-    "prettier": "^3.3.0",
-    "tsm": "^2.3.0",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.11.0",
-    "uvu": "^0.5.6"
-  },
-  "peerDependencies": {
-    "gulp": ">=4.0.2 || ^5"
-  },
-  "scripts": {
-    "build": "tsup",
-    "dev": "npm run build -- --watch",
-    "lint:code": "eslint **/*.json **/*.ts --no-warn-ignored",
-    "lint:deps": "knip --production",
-    "lint": "npm-run-all --parallel lint:*",
-    "prepack": "npm run build",
-    "prepare": "husky",
-    "test": "uvu -r tsm tests"
-  },
-  "lint-staged": {
-    "*.(ts|json)": "eslint --cache --fix"
-  },
-  "packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
+	"name": "gulp-xml-validator",
+	"version": "3.0.1",
+	"description": "Gulp plugin to validate XML",
+	"author": "Jan T. Sott",
+	"license": "MIT",
+	"type": "module",
+	"exports": "./dist/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/idleberg/gulp-xml-validator.git"
+	},
+	"keywords": [
+		"gulp",
+		"gulpplugin",
+		"gulp-plugin",
+		"linter",
+		"validator",
+		"xml",
+		"xmldom"
+	],
+	"files": [
+		"dist/",
+		"LICENSE",
+		"package.json",
+		"README.md"
+	],
+	"engines": {
+		"gulp": ">=2.3.0",
+		"node": ">=18"
+	},
+	"dependencies": {
+		"@xmldom/xmldom": "^0.8.10",
+		"kleur": "^4.1.5",
+		"plugin-error": "^2.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "^18.19.33",
+		"@types/vinyl": "^2.0.12",
+		"eslint": "^9.4.0",
+		"eslint-plugin-jsonc": "^2.16.0",
+		"eslint-plugin-unicorn": "^53.0.0",
+		"gulp": "^4.0.2",
+		"husky": "^9.0.11",
+		"knip": "^5.17.3",
+		"lint-staged": "^15.2.5",
+		"npm-run-all2": "^6.2.0",
+		"prettier": "^3.3.0",
+		"tsm": "^2.3.0",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^7.11.0",
+		"uvu": "^0.5.6"
+	},
+	"peerDependencies": {
+		"gulp": ">=4.0.2 || ^5"
+	},
+	"scripts": {
+		"build": "tsup",
+		"dev": "npm run build -- --watch",
+		"lint:code": "eslint **/*.json **/*.ts --no-warn-ignored",
+		"lint:deps": "knip --production",
+		"lint": "npm-run-all --parallel lint:*",
+		"prepack": "npm run build",
+		"prepare": "husky",
+		"test": "uvu -r tsm tests"
+	},
+	"lint-staged": {
+		"*.(ts|json)": [
+			"eslint --cache --fix",
+			"prettier --cache --write"
+		]
+	},
+	"packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
 }
