@@ -12,7 +12,7 @@ function resolveFixture(fileName) {
 test('should emit error on streamed file', async () => {
 	const fixture = resolveFixture('valid.xml');
 
-	const { message } = await new Promise((resolve) => {
+	const { message }: Error = await new Promise((resolve) => {
 		gulp
 			.src(fixture, { buffer: false })
 			.pipe(xmlValidator())
@@ -36,7 +36,7 @@ test('pass on valid xml', async () => {
 test('fail on mismatching tags', async () => {
 	const fixture = resolveFixture('mismatching_tags.xml');
 
-	const { message } = await new Promise((resolve) => {
+	const { message }: Error = await new Promise((resolve) => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
@@ -49,7 +49,7 @@ test('fail on mismatching tags', async () => {
 test('fail on missing close tags', async () => {
 	const fixture = resolveFixture('missing_close_tag.xml');
 
-	const { message } = await new Promise((resolve) => {
+	const { message }: Error = await new Promise((resolve) => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
@@ -62,7 +62,7 @@ test('fail on missing close tags', async () => {
 test('fail on missing quote', async () => {
 	const fixture = resolveFixture('missing_quote.xml');
 
-	const { message } = await new Promise((resolve) => {
+	const { message }: Error = await new Promise((resolve) => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
@@ -79,7 +79,7 @@ test('fail on missing quote', async () => {
 test('fail on invalid tag', async () => {
 	const fixture = resolveFixture('invalid_tag.xml');
 
-	const { message } = await new Promise((resolve) => {
+	const { message }: Error = await new Promise((resolve) => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
