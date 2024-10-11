@@ -49,7 +49,7 @@ export function xmlValidator(
 
 			try {
 				new DOMParser({
-					errorHandler: function errorHandler(level, message) {
+					errorHandler: (level, message) => {
 						message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
 						errorList.push(`${underline(file.relative)}: <${level}> ${message}`);
 					},
