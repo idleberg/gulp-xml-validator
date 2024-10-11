@@ -4,7 +4,7 @@ export default defineConfig({
 	clean: true,
 	dts: true,
 	entry: ['src/index.ts'],
-	external: ['@xmldom/xmldom', 'kleur', 'external:plugin-error'],
+	external: ['@xmldom/xmldom', 'kleur', 'plugin-error'],
 	format: 'esm',
 	minify: true,
 	outDir: 'dist',
