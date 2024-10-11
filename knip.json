@@ -1,5 +1,4 @@
 {
-  "ignore": [
-		"tests/**"
-	]
+	"ignore": ["tests/**"],
+	"ignoreDependencies": ["@types/gulp"]
 }
