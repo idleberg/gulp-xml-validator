@@ -1,11 +1,12 @@
-import { xmlValidator } from '../dist/index.js';
+import { xmlValidator } from '../src/index.ts';
 
 import { resolve } from 'node:path';
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 import gulp from 'gulp';
+import type PluginError from 'plugin-error';
 
-function resolveFixture(fileName) {
+function resolveFixture(fileName: string) {
 	return resolve(process.cwd(), `tests/fixtures/${fileName}`);
 }
 
@@ -16,7 +17,7 @@ test('should emit error on streamed file', async () => {
 		gulp
 			.src(fixture, { buffer: false })
 			.pipe(xmlValidator())
-			.once('error', (error) => resolve(error));
+			.once('error', (error: PluginError) => resolve(error));
 	});
 
 	assert.is(message, 'Streaming not supported');
@@ -40,7 +41,7 @@ test('fail on mismatching tags', async () => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
-			.once('error', (error) => resolve(error));
+			.once('error', (error: PluginError) => resolve(error));
 	});
 
 	assert.ok(message.includes('\x1B[4mmismatching_tags.xml\x1B[24m: <warning> unclosed xml attribute'));
@@ -53,7 +54,7 @@ test('fail on missing close tags', async () => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
-			.once('error', (error) => resolve(error));
+			.once('error', (error: PluginError) => resolve(error));
 	});
 
 	assert.ok(message.includes('\x1B[4mmissing_close_tag.xml\x1B[24m: <warning> unclosed xml attribute'));
@@ -66,7 +67,7 @@ test('fail on missing quote', async () => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
-			.once('error', (error) => resolve(error));
+			.once('error', (error: PluginError) => resolve(error));
 	});
 
 	assert.ok(
@@ -83,7 +84,7 @@ test('fail on invalid tag', async () => {
 		gulp
 			.src(fixture)
 			.pipe(xmlValidator())
-			.once('error', (error) => resolve(error));
+			.once('error', (error: PluginError) => resolve(error));
 	});
 
 	assert.ok(

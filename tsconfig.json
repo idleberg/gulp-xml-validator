@@ -1,24 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "types": ["node", "vinyl"]
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/__tests__/*",
-    "**/*.test.ts"
-  ]
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "es2020",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es2020",
+		"types": ["node", "vinyl"]
+	},
+	"include": ["src", "tests"],
+	"exclude": ["node_modules", "**/__tests__/*", "**/*.test.ts"]
 }
-
