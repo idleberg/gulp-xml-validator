@@ -6,7 +6,7 @@ import * as assert from 'uvu/assert';
 import gulp from 'gulp';
 import type PluginError from 'plugin-error';
 
-function resolveFixture(fileName: string) {
+function resolveFixture(fileName: string): string {
 	return resolve(process.cwd(), `tests/fixtures/${fileName}`);
 }
 
