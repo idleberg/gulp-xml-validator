@@ -35,6 +35,8 @@
 		"plugin-error": "^2.0.1"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
 		"@idleberg/configs": "^0.3.1",
 		"@types/gulp": "^4.0.17",
 		"@types/node": "^18.19.55",
