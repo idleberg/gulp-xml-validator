@@ -1,5 +1,5 @@
-import { DOMParser } from '@xmldom/xmldom';
 import { Transform, type TransformCallback } from 'node:stream';
+import { DOMParser } from '@xmldom/xmldom';
 import { underline } from 'kleur/colors';
 import PluginError from 'plugin-error';
 
@@ -50,8 +50,9 @@ export function xmlValidator(
 			try {
 				new DOMParser({
 					errorHandler: (level, message) => {
-						message = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
-						errorList.push(`${underline(file.relative)}: <${level}> ${message}`);
+						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '') ?? '';
+
+						errorList.push(`${underline(file.relative)}: <${level}> ${replacedMessage}`);
 					},
 				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
 			} catch (error) {

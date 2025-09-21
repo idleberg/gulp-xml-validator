@@ -1,10 +1,9 @@
-import { xmlValidator } from '../src/index.ts';
-
 import { resolve } from 'node:path';
-import { test } from 'uvu';
-import * as assert from 'uvu/assert';
 import gulp from 'gulp';
 import type PluginError from 'plugin-error';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+import { xmlValidator } from '../src/index.ts';
 
 function resolveFixture(fileName: string): string {
 	return resolve(process.cwd(), `tests/fixtures/${fileName}`);

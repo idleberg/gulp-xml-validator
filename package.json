@@ -35,22 +35,17 @@
 		"plugin-error": "^2.0.1"
 	},
 	"devDependencies": {
-		"@types/node": "^18.19.55",
+		"@idleberg/configs": "^0.3.1",
 		"@types/gulp": "^4.0.17",
+		"@types/node": "^18.19.55",
 		"@types/vinyl": "^2.0.12",
-		"eslint": "^9.12.0",
-		"eslint-plugin-jsonc": "^2.16.0",
-		"eslint-plugin-unicorn": "^56.0.0",
 		"gulp": "^4.0.2",
-		"husky": "^9.1.6",
 		"knip": "^5.33.3",
-		"lint-staged": "^15.2.10",
 		"npm-run-all2": "^6.2.3",
 		"prettier": "^3.3.3",
 		"tsm": "^2.3.0",
 		"tsup": "^8.3.0",
 		"typescript": "^5.6.3",
-		"typescript-eslint": "^8.8.1",
 		"uvu": "^0.5.6"
 	},
 	"peerDependencies": {
@@ -59,18 +54,12 @@
 	"scripts": {
 		"build": "tsup",
 		"dev": "npm run build -- --watch",
-		"lint:code": "eslint **/*.json **/*.ts --no-warn-ignored",
+		"lint:code": "biome check",
 		"lint:deps": "knip --production",
 		"lint": "npm-run-all --parallel lint:*",
 		"prepack": "npm run build",
-		"prepare": "husky",
+		"prepare": "lefthook install",
 		"test": "uvu -r tsm tests"
 	},
-	"lint-staged": {
-		"*.(ts|json)": [
-			"eslint --cache --fix",
-			"prettier --cache --write"
-		]
-	},
-	"packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
+	"packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef"
 }
