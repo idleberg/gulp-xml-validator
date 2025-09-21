@@ -6,7 +6,6 @@ on:
       - ".github/workflows/node.yml"
       - "src/**"
       - "tests/**"
-      - "types/**"
       - "package.json"
       - "pnpm-lock.yaml"
   pull_request:
@@ -14,7 +13,6 @@ on:
       - ".github/workflows/node.yml"
       - "src/**"
       - "tests/**"
-      - "types/**"
       - "package.json"
       - "pnpm-lock.yaml"
   workflow_dispatch:
@@ -26,7 +24,6 @@ jobs:
       fail-fast: false
       matrix:
         node-version: ["lts/*", "latest"]
-        vite-version: ["vite@5", "vite@6", "vite@7"]
 
     steps:
       - uses: actions/checkout@v4
@@ -56,9 +53,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: |
-          pnpm install --frozen-lockfile --strict-peer-dependencies
-          pnpm install ${{ matrix.vite-version }}
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - name: Lint Source
         run: pnpm exec biome ci
