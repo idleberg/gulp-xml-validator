@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
 	clean: true,
@@ -10,5 +10,5 @@ export default defineConfig({
 	outDir: 'dist',
 	platform: 'node',
 	target: 'esnext',
-	treeshake: 'recommended',
+	treeshake: true,
 });
