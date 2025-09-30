@@ -11,7 +11,7 @@ type PluginOptions = {
 
 /**
  * Gulp plugin to validate XML files using the xmldom library.
- * @returns {Transform} A transform stream that validates XML files.
+ * @returns A transform stream that validates XML files.
  */
 export function xmlValidator(
 	options: PluginOptions = {
