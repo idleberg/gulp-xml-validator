@@ -49,29 +49,26 @@ export function xmlValidator(
 
 			try {
 				new DOMParser({
-					errorHandler: (level, message) => {
+					onError: (level: string, message: string) => {
 						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '') ?? '';
 
 						errorList.push(`${underline(file.relative)}: <${level}> ${replacedMessage}`);
 					},
 				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
 			} catch (error) {
-				this.emit(
-					'error',
-					new PluginError(packageName, error as Error, {
-						fileName: file.path,
-					}),
-				);
+				if (error instanceof Error) {
+					errorList.push(`${underline(file.relative)}: <fatalError> ${error.message}`);
+				}
 			}
 
 			if (errorList && errorList.length > 0) {
-				this.emit(
-					'error',
+				callback(
 					new PluginError(packageName, `\n${errorList.join('\n')}`, {
 						fileName: file.path,
 						showStack: false,
 					}),
 				);
+				return;
 			}
 
 			callback(null, file);

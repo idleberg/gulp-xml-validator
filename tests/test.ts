@@ -43,7 +43,7 @@ test('fail on mismatching tags', async () => {
 			.once('error', (error: PluginError) => resolve(error));
 	});
 
-	assert.ok(message.includes('\x1B[4mmismatching_tags.xml\x1B[24m: <warning> unclosed xml attribute'));
+	assert.ok(message.includes('\x1B[4mmismatching_tags.xml\x1B[24m: <fatalError> Opening and ending tag mismatch'));
 });
 
 test('fail on missing close tags', async () => {
@@ -56,7 +56,7 @@ test('fail on missing close tags', async () => {
 			.once('error', (error: PluginError) => resolve(error));
 	});
 
-	assert.ok(message.includes('\x1B[4mmissing_close_tag.xml\x1B[24m: <warning> unclosed xml attribute'));
+	assert.ok(message.includes('\x1B[4mmissing_close_tag.xml\x1B[24m: <fatalError>'));
 });
 
 test('fail on missing quote', async () => {
@@ -71,7 +71,7 @@ test('fail on missing quote', async () => {
 
 	assert.ok(
 		message.includes(
-			`\x1B[4mmissing_quote.xml\x1B[24m: <error> [xmldom error]\telement parse error: Error: attribute value no end '"' match`,
+			`\x1B[4mmissing_quote.xml\x1B[24m: <error> element parse error: Error: attribute value no end '"' match`,
 		),
 	);
 });
@@ -86,11 +86,7 @@ test('fail on invalid tag', async () => {
 			.once('error', (error: PluginError) => resolve(error));
 	});
 
-	assert.ok(
-		message.includes(
-			'\x1B[4minvalid_tag.xml\x1B[24m: <error> [xmldom error]\telement parse error: Error: invalid tagName:1',
-		),
-	);
+	assert.ok(message.includes('\x1B[4minvalid_tag.xml\x1B[24m: <error> element parse error: Error: invalid tagName:1'));
 });
 
 test.run();
