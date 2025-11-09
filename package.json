@@ -35,19 +35,21 @@
 		"plugin-error": "^2.0.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.1",
-		"@commitlint/config-conventional": "^19.8.1",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
 		"@idleberg/configs": "^0.3.1",
-		"@types/gulp": "^4.0.17",
-		"@types/node": "^18.19.55",
+		"@types/gulp": "^4.0.18",
+		"@types/node": "^24.10.0",
 		"@types/vinyl": "^2.0.12",
+		"concurrently": "^9.2.1",
 		"gulp": "^4.0.2",
-		"knip": "^5.63.1",
+		"knip": "^5.68.0",
 		"npm-run-all2": "^8.0.4",
 		"prettier": "^3.6.2",
-		"tsdown": "^0.15.4",
+		"publint": "^0.3.15",
+		"tsdown": "^0.16.1",
 		"tsm": "^2.3.0",
-		"typescript": "^5.9.2",
+		"typescript": "^5.9.3",
 		"uvu": "^0.5.6"
 	},
 	"peerDependencies": {
@@ -56,9 +58,10 @@
 	"scripts": {
 		"build": "tsdown",
 		"dev": "npm run build -- --watch",
-		"lint:code": "biome check",
-		"lint:deps": "knip --production",
-		"lint": "npm-run-all --parallel lint:*",
+		"lint": "concurrently --prefix-colors blue,green,magenta npm:lint:*",
+		"lint:biome": "biome check",
+		"lint:knip": "knip --cache --production",
+		"lint:publint": "publint",
 		"prepack": "npm run build",
 		"prepare": "lefthook install",
 		"test": "uvu -r tsm tests"
