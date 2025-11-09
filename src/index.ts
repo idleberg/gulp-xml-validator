@@ -11,7 +11,7 @@ type PluginOptions = {
 
 /**
  * Gulp plugin to validate XML files using the xmldom library.
- * @returns {Transform} A transform stream that validates XML files.
+ * @returns A transform stream that validates XML files.
  */
 export function xmlValidator(
 	options: PluginOptions = {
@@ -25,9 +25,9 @@ export function xmlValidator(
 
 		/**
 		 * Transform function for the Gulp plugin.
-		 * @param {Vinyl} file - The vinyl file being processed.
-		 * @param {BufferEncoding} _encoding - The encoding of the file.
-		 * @param {TransformCallback} callback - The callback function to signal the completion of the transformation.
+		 * @param file - The vinyl file being processed.
+		 * @param _encoding - The encoding of the file.
+		 * @param callback - The callback function to signal the completion of the transformation.
 		 */
 		transform(file: Vinyl, _encoding: BufferEncoding, callback: TransformCallback) {
 			if (file.isNull()) {
