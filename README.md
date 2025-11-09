@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/npm/l/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/blob/main/README.md)
 [![Version](https://img.shields.io/github/v/release/idleberg/gulp-xml-validator?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/gulp-xml-validator/node.yml?style=for-the-badge)](https://github.com/idleberg/gulp-xml-validator/actions)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/gulp-xml-validator/main?style=for-the-badge)
 
 ## Installation
 
