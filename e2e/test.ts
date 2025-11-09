@@ -6,7 +6,7 @@ import * as assert from 'uvu/assert';
 import { xmlValidator } from '../src/index.ts';
 
 function resolveFixture(fileName: string): string {
-	return resolve(process.cwd(), `tests/fixtures/${fileName}`);
+	return resolve(process.cwd(), `e2e/fixtures/${fileName}`);
 }
 
 test('should emit error on streamed file', async () => {
