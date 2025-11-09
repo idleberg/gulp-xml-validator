@@ -13,6 +13,9 @@ yarn.lock
 # Build
 dist/
 
+# Testing
+coverage/
+
 # Project specific
 *.xml
 !test/**/*.xml
