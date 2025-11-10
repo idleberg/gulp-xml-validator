@@ -52,6 +52,7 @@
 		"concurrently": "^9.2.1",
 		"gulp": "^5.0.1",
 		"knip": "^5.68.0",
+		"np": "^10.2.0",
 		"prettier": "^3.6.2",
 		"publint": "^0.3.15",
 		"tsdown": "^0.16.1",
@@ -73,6 +74,7 @@
 		"lint:publint": "publint",
 		"prepack": "npm run build",
 		"prepare": "lefthook install",
+		"publish:npm": "np --any-branch",
 		"test": "concurrently --prefix-colors magenta,cyan npm:test:*",
 		"test:unit": "vitest run",
 		"test:e2e": "uvu -r tsm e2e"
