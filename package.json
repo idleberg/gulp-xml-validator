@@ -5,7 +5,14 @@
 	"author": "Jan T. Sott",
 	"license": "MIT",
 	"type": "module",
-	"exports": "./dist/index.js",
+	"exports": {
+		"types": {
+			"import": "./dist/index.d.mts",
+			"require": "./dist/index.d.cts"
+		},
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.cjs"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/idleberg/gulp-xml-validator.git"
