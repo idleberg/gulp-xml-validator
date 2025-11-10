@@ -5,10 +5,10 @@ export default defineConfig({
 	dts: true,
 	entry: ['src/index.ts'],
 	external: ['@xmldom/xmldom', 'kleur', 'plugin-error'],
-	format: 'esm',
+	format: ['esm', 'cjs'],
 	minify: true,
 	outDir: 'dist',
 	platform: 'node',
-	target: 'esnext',
+	target: 'node20',
 	treeshake: true,
 });
