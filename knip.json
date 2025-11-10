@@ -1,4 +1,3 @@
 {
-	"ignore": ["e2e/**"],
-	"ignoreDependencies": ["@types/gulp"]
+	"ignore": ["e2e/**"]
 }
