@@ -28,7 +28,7 @@ gulp.task('lint', done => {
 ```
 
 > [!NOTE]
-> [Read how to migrate your `Gulpfile`](https://gist.github.com/noraj/007a943dc781dc8dd3198a29205bae04) to ESM.
+> This package encourages the use of ESM. [Read how to migrate your `Gulpfile`](https://gist.github.com/noraj/007a943dc781dc8dd3198a29205bae04).
 
 ### Options
 
