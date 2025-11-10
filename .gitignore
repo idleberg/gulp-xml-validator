@@ -18,5 +18,5 @@ coverage/
 
 # Project specific
 *.xml
-!test/**/*.xml
+!e2e/**/*.xml
 todo.md
