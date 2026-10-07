@@ -259,6 +259,26 @@ describe('xmlValidator', () => {
 			});
 		});
 
+		it('should pass mimeType to the parser', () => {
+			return new Promise<void>((resolve) => {
+				const file = new Vinyl({
+					path: 'test.xml',
+					contents: Buffer.from('<?xml version="1.0"?><root></root>'),
+				});
+
+				const stream = xmlValidator({ mimeType: 'bogus' });
+
+				stream.once('error', (error: PluginError) => {
+					expect(error.message).toContain('the provided mimeType "bogus" is not valid');
+
+					resolve();
+				});
+
+				stream.write(file);
+				stream.end();
+			});
+		});
+
 		it('should use default mimeType when not specified', () => {
 			return new Promise<void>((resolve) => {
 				const file = new Vinyl({
