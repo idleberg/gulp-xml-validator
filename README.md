@@ -19,12 +19,10 @@ $ npm install gulp-xml-validator --save-dev
 import gulp from 'gulp';
 import { xmlValidator } from 'gulp-xml-validator';
 
-gulp.task('lint', done => {
+gulp.task('lint', () =>
   gulp.src('**/*.xml')
-    .pipe(xmlValidator());
-
-  done();
-});
+    .pipe(xmlValidator())
+);
 ```
 
 > [!NOTE]
