@@ -13,11 +13,7 @@ type PluginOptions = {
  * Gulp plugin to validate XML files using the xmldom library.
  * @returns A transform stream that validates XML files.
  */
-export function xmlValidator(
-	options: PluginOptions = {
-		mimeType: 'text/xml',
-	},
-): Transform {
+export function xmlValidator(options: PluginOptions = {}): Transform {
 	const packageName = 'gulp-xml-validator';
 	const errorList: string[] = [];
 	const failedFiles: string[] = [];
@@ -37,13 +33,8 @@ export function xmlValidator(
 				return;
 			}
 
-			if (file.isStream()) {
+			if (!file.isBuffer()) {
 				callback(new PluginError(packageName, 'Streaming not supported'));
-				return;
-			}
-
-			if (!file.contents) {
-				callback(new PluginError(packageName, 'Empty file'));
 				return;
 			}
 
@@ -52,11 +43,11 @@ export function xmlValidator(
 			try {
 				new DOMParser({
 					onError: (level: string, message: string) => {
-						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '') ?? '';
+						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '');
 
 						fileErrors.push(`${styleText('underline', file.relative)}: <${level}> ${replacedMessage}`);
 					},
-				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
+				}).parseFromString(file.contents.toString(), options.mimeType ?? 'text/xml');
 			} catch (error) {
 				if (error instanceof Error) {
 					fileErrors.push(`${styleText('underline', file.relative)}: <fatalError> ${error.message}`);
