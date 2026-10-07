@@ -29,6 +29,12 @@ gulp.task('lint', () =>
 > 
 > This package encourages the use of ESM. [Read how to migrate your `Gulpfile`](https://gist.github.com/noraj/007a943dc781dc8dd3198a29205bae04).
 
+### Validation
+
+Files are parsed with [xmldom](https://github.com/xmldom/xmldom). Any message it reports fails the task, including warnings: xmldom raises warnings for malformed XML it can recover from, such as unquoted attribute values (`<a b=c>`) or attributes without a value (`<a b>`).
+
+All files are checked before the task fails, and the error lists every problem found. Files that pass validation continue down the stream.
+
 ### Options
 
 #### `options.mimeType`
@@ -36,7 +42,7 @@ gulp.task('lint', () =>
 Type: `string`  
 Default: `"text/xml"`
 
-Allows modifying the MIME type passed to `DOMParser().parseFromString()`.
+Allows modifying the MIME type passed to `DOMParser().parseFromString()`. An unsupported MIME type fails the task.
 
 ## License
 
