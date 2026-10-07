@@ -210,6 +210,30 @@ describe('xmlValidator', () => {
 		});
 	});
 
+	describe('multiple files', () => {
+		it('should report errors from every bad file and still pass good ones', () => {
+			return new Promise<void>((resolve) => {
+				const make = (path: string, xml: string) => new Vinyl({ path, contents: Buffer.from(xml) });
+				const good = make('good.xml', '<root></root>');
+				const stream = xmlValidator();
+				const passed: Vinyl[] = [];
+
+				stream.on('data', (f: Vinyl) => passed.push(f));
+				stream.once('error', (error: PluginError) => {
+					expect(error.message).toContain('bad1.xml');
+					expect(error.message).toContain('bad2.xml');
+					expect(passed).toEqual([good]);
+					resolve();
+				});
+
+				stream.write(make('bad1.xml', '<open></close>'));
+				stream.write(good);
+				stream.write(make('bad2.xml', '<open></close>'));
+				stream.end();
+			});
+		});
+	});
+
 	describe('options', () => {
 		it('should accept custom mimeType', () => {
 			return new Promise<void>((resolve, reject) => {

@@ -19,6 +19,8 @@ export function xmlValidator(
 	},
 ): Transform {
 	const packageName = 'gulp-xml-validator';
+	const errorList: string[] = [];
+	const failedFiles: string[] = [];
 
 	return new Transform({
 		objectMode: true,
@@ -45,33 +47,48 @@ export function xmlValidator(
 				return;
 			}
 
-			const errorList: string[] = [];
+			const fileErrors: string[] = [];
 
 			try {
 				new DOMParser({
 					onError: (level: string, message: string) => {
 						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '') ?? '';
 
-						errorList.push(`${styleText('underline', file.relative)}: <${level}> ${replacedMessage}`);
+						fileErrors.push(`${styleText('underline', file.relative)}: <${level}> ${replacedMessage}`);
 					},
 				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
 			} catch (error) {
 				if (error instanceof Error) {
-					errorList.push(`${styleText('underline', file.relative)}: <fatalError> ${error.message}`);
+					fileErrors.push(`${styleText('underline', file.relative)}: <fatalError> ${error.message}`);
 				}
 			}
 
-			if (errorList && errorList.length > 0) {
-				callback(
-					new PluginError(packageName, `\n${errorList.join('\n')}`, {
-						fileName: file.path,
-						showStack: false,
-					}),
-				);
+			if (fileErrors.length > 0) {
+				errorList.push(...fileErrors);
+				failedFiles.push(file.path);
+				callback();
 				return;
 			}
 
 			callback(null, file);
+		},
+
+		/**
+		 * Reports all collected errors once every file has been validated.
+		 * @param callback - The callback function to signal the completion of the stream.
+		 */
+		flush(callback: TransformCallback) {
+			if (errorList.length === 0) {
+				callback();
+				return;
+			}
+
+			callback(
+				new PluginError(packageName, `\n${errorList.join('\n')}`, {
+					fileName: failedFiles.length === 1 ? failedFiles[0] : undefined,
+					showStack: false,
+				}),
+			);
 		},
 	});
 }
