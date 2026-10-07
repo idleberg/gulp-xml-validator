@@ -5,5 +5,5 @@ publicHoistPattern:
   - '*@total-typescript/tsconfig*'
   - '*lefthook*'
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: true
   lefthook: true
