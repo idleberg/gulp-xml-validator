@@ -34,7 +34,7 @@
 	],
 	"engines": {
 		"gulp": ">=2.3.0",
-		"node": ">=20"
+		"node": ">=20.12"
 	},
 	"dependencies": {
 		"@xmldom/xmldom": "^0.9.12",
