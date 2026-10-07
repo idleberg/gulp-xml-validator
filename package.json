@@ -67,7 +67,7 @@
 		"dev": "npm run build -- --watch",
 		"lint": "concurrently --prefix-colors blue,green,magenta npm:lint:*",
 		"lint:biome": "biome check",
-		"lint:e18e": "e18e-cli analyze",
+		"lint:e18e": "e18e-cli analyze --log-level error",
 		"prepack": "npm run build",
 		"publish:npm": "np --any-branch",
 		"test": "concurrently --prefix-colors magenta,cyan npm:test:*",
