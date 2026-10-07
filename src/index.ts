@@ -1,6 +1,6 @@
 import { Transform, type TransformCallback } from 'node:stream';
+import { styleText } from 'node:util';
 import { DOMParser } from '@xmldom/xmldom';
-import { underline } from 'kleur/colors';
 import PluginError from 'plugin-error';
 
 import type Vinyl from 'vinyl';
@@ -52,12 +52,12 @@ export function xmlValidator(
 					onError: (level: string, message: string) => {
 						const replacedMessage = message.replace(/\[xmldom (warning|.*Error)\]\s+/g, '') ?? '';
 
-						errorList.push(`${underline(file.relative)}: <${level}> ${replacedMessage}`);
+						errorList.push(`${styleText('underline', file.relative)}: <${level}> ${replacedMessage}`);
 					},
 				}).parseFromString(file.contents.toString(), options?.mimeType ?? 'text/xml');
 			} catch (error) {
 				if (error instanceof Error) {
-					errorList.push(`${underline(file.relative)}: <fatalError> ${error.message}`);
+					errorList.push(`${styleText('underline', file.relative)}: <fatalError> ${error.message}`);
 				}
 			}
 

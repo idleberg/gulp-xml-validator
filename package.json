@@ -38,7 +38,6 @@
 	},
 	"dependencies": {
 		"@xmldom/xmldom": "^0.9.0",
-		"kleur": "^4.1.5",
 		"plugin-error": "^2.0.1"
 	},
 	"devDependencies": {
