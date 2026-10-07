@@ -4,7 +4,9 @@ export default defineConfig({
 	clean: true,
 	dts: true,
 	entry: ['src/index.ts'],
-	external: ['@xmldom/xmldom', 'plugin-error'],
+	deps: {
+		neverBundle: ['@xmldom/xmldom', 'plugin-error'],
+	},
 	format: ['esm', 'cjs'],
 	minify: true,
 	outDir: 'dist',
